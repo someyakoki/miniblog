@@ -12,6 +12,24 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $dataSet = [
+            [
+                'user/id' =>1,
+                'body' => '初投稿です',
+            ],
+            [
+                'user/id'=>1,
+                'body'=>'自動でデータを入れました',
+            ],
+            [
+                'user/id'=>2,
+                'body'=>'ID:2のユーザーの投稿です',
+            ],
+            
+        ];   
+        foreach($dataSet as $data) {
+            Post::create($data);
+        }
+    
     }
 }
