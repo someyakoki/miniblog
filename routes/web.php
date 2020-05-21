@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostController@index');
 
 Auth::routes();
 
@@ -21,7 +19,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/users/{id}', 'UserController@show');
 
-Route::get('me', 'UserController@edit')->middleware('auth');
-
-Route::post('me','UserController@update')->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('me', 'UserController@edit');
+    Route::post('me', 'UserController@update')->name('users.update');
+});
 

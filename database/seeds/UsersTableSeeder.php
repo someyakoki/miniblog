@@ -11,10 +11,22 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $dataSet =[
+            [
             'name' => 'トム',
             'email'=>'tom@example.com',
             'password'=>bcrypt('password'),
-        ]);
+            ],
+            [
+            'name'=>'ジェリー',
+            'email'=>'jerrry@example.com',
+            'password'=>bcrypt('password'),
+            ],
+        ];
+        foreach ($dataSet as $data) {
+            User::create($data);
+        }
+        
+        
     }
 }
