@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
-@section('content')
-  <ul>
+<div class="container">
     @foreach($posts as $post)
-      <li>{{ $post->user_id }}: {{ $post->body }}</li>
+      <div class="card">
+        <div class="card-header">{{ $post->user->name }}</div>
+        <div class="card-body">{{ $post->body }}</div>
+      </div>
     @endforeach
-  </ul>
+  </div>
 @endsection
