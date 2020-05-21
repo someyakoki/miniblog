@@ -19,12 +19,18 @@ class PostController extends Controller
     }
 
     public function store(Request $request)
-{
+  {
     $post = new Post;
     $post->fill($request->all());
     $post->user()->associate(Auth::user()); // ★
     $post->save();
 
     return redirect()->to('/'); // '/' へリダイレクト
+  }
+  public function index()
+{
+    $posts = Post::with(['user'])->orderBy('created_at', 'desc')->get();
+
+    return view('index', ['posts' => $posts]);
 }
 }
