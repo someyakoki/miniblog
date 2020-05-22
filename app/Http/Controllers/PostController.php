@@ -27,7 +27,7 @@ class PostController extends Controller
 
     return redirect()->to('/'); 
 }
-    public function index()
+public function index()
 {
     $posts = Post::with(['user'])->orderBy('created_at', 'desc')->get();
 
@@ -59,6 +59,10 @@ public function delete(Post $post)
     $post->delete();
 
     return redirect()->to('/');
+}
+public function show(Post $post)
+{
+    return view('posts.show', ['post' => $post]);
 }
 
 }
