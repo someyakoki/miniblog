@@ -2,7 +2,7 @@
 
 @section('content')
 @foreach($errors->all() as $message)
-<div>{{$message}}</div>
+ <div>{{$message}}</div>
 @endforeach
 
 @if(Session::has('message'))

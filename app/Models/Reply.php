@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
@@ -18,8 +17,4 @@ class Reply extends Model
     {
         return $this->belongsTo(Reply::class);
     }
-    public function replies()
-{
-    return $this->hasMany(Reply::class);
-}
 }

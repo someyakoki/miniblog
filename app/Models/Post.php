@@ -16,6 +16,17 @@ class Post extends Model
     return $this->belongsTo(User::class);
 }
 
+public function replies()
+{
+    return $this->hasMany(Reply::class);
+}
+
+public function bookmarkingUsers()
+{
+    return $this->belongsToMany(User::class, 'bookmarks');
+}
+
+
 }
 
 
